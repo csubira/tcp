@@ -2,7 +2,6 @@ import sys
 import random
 from errors import FlightControllerException, AirlineNotValid, Error
 
-
 class FlightControllerConversation():
     AIRLINES = {"IBE" : "Iberia", "DLH" : "Lufthansa", "EZY" : "Easy Jet" }
     ACTIONS = { 0 : 'startup', 1 : 'pushback'}
