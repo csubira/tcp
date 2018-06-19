@@ -136,7 +136,6 @@ class FlightControllerConversation():
             self.airline_id = airline_id
             return True
         else:
-            # raise AirlineNotValid
             self.error.raise_error(1)
             return False
 
