@@ -1,0 +1,26 @@
+---
+- name: Ansible playbook for tcp app
+  hosts: all
+  become: true
+  become_user: root
+  tasks:
+  - name: Install git
+    apt:
+      name: git
+      state: present
+  - git:
+      repo: https://github.com/csubira/tcp.git
+      dest: /fc-tcp
+  - name: Copy bg_process systemd unit file
+    copy:
+      src: /fc-tcp/bg_process.service
+      dest: /etc/systemd/system/bg_process.service
+      owner: root
+      group: root
+      mode: 0755
+  - name: start bg_process service
+    systemd:
+      name: bg_process
+      state: started
+      enabled: yes
+      daemon_reload: yes

@@ -1,0 +1,13 @@
+[Unit]
+Description=bg_process
+
+[Service]
+Type=simple
+User=cillas
+
+ExecStart=/usr/bin/python /fc-tcp/server.py
+Restart=always
+ExecReload=/usr/bin/python /fc-tcp/server.py
+
+[Install]
+WantedBy=multi-user.target
